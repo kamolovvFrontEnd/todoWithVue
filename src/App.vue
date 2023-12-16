@@ -6,11 +6,12 @@
       <button type="submit" @click="todos.push(text)">Submit</button>
     </form>
   </div>
-  
+
   <div>
     <ol>
       <li v-for="(todo, i) in todos">
         {{ todo }}
+        <button @click="todos.splice(i, 1)">delete</button>
       </li>
     </ol>
   </div>
