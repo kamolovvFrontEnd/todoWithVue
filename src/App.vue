@@ -1,8 +1,20 @@
+<script setup>
+import { ref } from "vue";
+
+let text = ref("");
+const todos = ref([]);
+
+const onSubmitHandler = (e) => {
+  text.value = ""
+  e.preventDefault();
+};
+</script>
+
 <template>
   <div>
     <h1>Todo App</h1>
     <form @submit="onSubmitHandler">
-      <input v-model="text" type="text" placeholder="Enter ..." @change="(e) => text = e.target.value"/>
+      <input v-model="text" type="text" placeholder="Enter ..." />
       <button type="submit" @click="todos.push(text)">Submit</button>
     </form>
   </div>
@@ -17,14 +29,3 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const text = ref('')
-const todos = ref([])
-
-const onSubmitHandler = (e) => {
-  e.preventDefault()
-}
-
-</script>
